@@ -1,0 +1,38 @@
+name: Secure Release Pipeline
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Compile Binary
+        run: g++ hello.cpp -o hello.exe
+
+      - name: Generate Checksum
+        run: sha256sum hello.exe > SHA256SUMS
+
+      - name: Import GPG Key
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+
+      - name: Sign the Checksum
+        run: gpg --detach-sig --armor SHA256SUMS
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            hello.exe
+            SHA256SUMS
+            SHA256SUMS.asc
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
