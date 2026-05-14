@@ -27,4 +27,4 @@
 
 - verify the checksum
 	
-	sha256sum --check SHA256SUMS	
+	sha256sum --check SHA256SUMS	 --ignore-missing
