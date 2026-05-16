@@ -38,5 +38,11 @@ Verify that the checksum file was signed by our verified GPG key:
 `gpg --verify SHA256SUMS.asc SHA256SUMS`
 
 **Step 5: Verify the Integrity (Checksum)**
-Verify that the executable has not been modified since it was compiled:
+Verify that the executable has not been modified since it was compiled. 
+
+**For Ubuntu/Linux (or Windows Git Bash):**
 `sha256sum --check SHA256SUMS --ignore-missing`
+
+**For Native Windows (PowerShell):**
+`Get-FileHash hello.exe -Algorithm SHA256`
+*(Note for Windows: Visually compare the output hash to the text inside the SHA256SUMS file to ensure they match).*
