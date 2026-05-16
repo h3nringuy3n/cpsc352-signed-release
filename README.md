@@ -1,5 +1,6 @@
 # cpsc352-signed-release
 Group members and contributions: 
+
 Henri Nguyen - GitHub repo setup & actions workflow & backend build
 
 Huy Bui - GPG Key Management & crypto logic
