@@ -1,11 +1,18 @@
 # cpsc352-signed-release
 Group members and contributions: 
 Henri Nguyen - GitHub repo setup & actions workflow & backend build
+
 Huy Bui - GPG Key Management & crypto logic
+
 Kedar Patil - Testing & documentation
+
 Eric Solorzano - Testing & documentation
+
 Philip Ma - Testing & documentation
+
 Kelsey Tang - Presentation
+
+
 
 #How to verify release
 
